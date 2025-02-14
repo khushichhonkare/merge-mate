@@ -46,9 +46,7 @@ const formSchema = z.object({
     .min(1, {
       message: "Access token is required."
     })
-    .regex(/^ghp_[a-zA-Z0-9]+$/, {
-      message: "Invalid access token format. It should start with 'ghp_'"
-    })
+   
 })
 
 function IndexPopup() {
@@ -63,164 +61,7 @@ function IndexPopup() {
     }
   })
 
-  const dummyData = [
-    {
-      url: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/comments/1953208196",
-      pull_request_review_id: 2612872090,
-      id: 1953208196,
-      node_id: "PRRC_kwDON4jeVs50a5eE",
-      diff_hunk:
-        "@@ -1 +1,6 @@\n-This is a demo txt file\n\\ No newline at end of file\n+This is a demo txt file\n+This is a demo txt file\n+",
-      path: "demo-file.txt",
-      commit_id: "a8c5292eb14d1900c822f9d126d2550161abefbc",
-      original_commit_id: "a8c5292eb14d1900c822f9d126d2550161abefbc",
-      user: {
-        login: "khushichhonkare",
-        id: 93440608,
-        node_id: "U_kgDOBZHKYA",
-        avatar_url: "https://avatars.githubusercontent.com/u/93440608?v=4",
-        gravatar_id: "",
-        url: "https://api.github.com/users/khushichhonkare",
-        html_url: "https://github.com/khushichhonkare",
-        followers_url: "https://api.github.com/users/khushichhonkare/followers",
-        following_url:
-          "https://api.github.com/users/khushichhonkare/following{/other_user}",
-        gists_url:
-          "https://api.github.com/users/khushichhonkare/gists{/gist_id}",
-        starred_url:
-          "https://api.github.com/users/khushichhonkare/starred{/owner}{/repo}",
-        subscriptions_url:
-          "https://api.github.com/users/khushichhonkare/subscriptions",
-        organizations_url: "https://api.github.com/users/khushichhonkare/orgs",
-        repos_url: "https://api.github.com/users/khushichhonkare/repos",
-        events_url:
-          "https://api.github.com/users/khushichhonkare/events{/privacy}",
-        received_events_url:
-          "https://api.github.com/users/khushichhonkare/received_events",
-        type: "User",
-        user_view_type: "public",
-        site_admin: false
-      },
-      body: "remove this line gap",
-      created_at: "2025-02-12T18:35:16Z",
-      updated_at: "2025-02-12T18:35:37Z",
-      html_url:
-        "https://github.com/khushichhonkare/demo-repo/pull/1#discussion_r1953208196",
-      pull_request_url:
-        "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/1",
-      author_association: "OWNER",
-      _links: {
-        self: {
-          href: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/comments/1953208196"
-        },
-        html: {
-          href: "https://github.com/khushichhonkare/demo-repo/pull/1#discussion_r1953208196"
-        },
-        pull_request: {
-          href: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/1"
-        }
-      },
-      reactions: {
-        url: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/comments/1953208196/reactions",
-        total_count: 0,
-        "+1": 0,
-        "-1": 0,
-        laugh: 0,
-        hooray: 0,
-        confused: 0,
-        heart: 0,
-        rocket: 0,
-        eyes: 0
-      },
-      start_line: null,
-      original_start_line: null,
-      start_side: null,
-      line: 3,
-      original_line: 3,
-      side: "RIGHT",
-      original_position: 5,
-      position: 5,
-      subject_type: "line"
-    },
-    {
-      url: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/comments/1953208362",
-      pull_request_review_id: 2612872090,
-      id: 1953208362,
-      node_id: "PRRC_kwDON4jeVs50a5gq",
-      diff_hunk:
-        "@@ -1 +1,6 @@\n-This is a demo txt file\n\\ No newline at end of file\n+This is a demo txt file\n+This is a demo txt file\n+\n+This is a demo txt file\n+",
-      path: "demo-file.txt",
-      commit_id: "a8c5292eb14d1900c822f9d126d2550161abefbc",
-      original_commit_id: "a8c5292eb14d1900c822f9d126d2550161abefbc",
-      user: {
-        login: "khushichhonkare",
-        id: 93440608,
-        node_id: "U_kgDOBZHKYA",
-        avatar_url: "https://avatars.githubusercontent.com/u/93440608?v=4",
-        gravatar_id: "",
-        url: "https://api.github.com/users/khushichhonkare",
-        html_url: "https://github.com/khushichhonkare",
-        followers_url: "https://api.github.com/users/khushichhonkare/followers",
-        following_url:
-          "https://api.github.com/users/khushichhonkare/following{/other_user}",
-        gists_url:
-          "https://api.github.com/users/khushichhonkare/gists{/gist_id}",
-        starred_url:
-          "https://api.github.com/users/khushichhonkare/starred{/owner}{/repo}",
-        subscriptions_url:
-          "https://api.github.com/users/khushichhonkare/subscriptions",
-        organizations_url: "https://api.github.com/users/khushichhonkare/orgs",
-        repos_url: "https://api.github.com/users/khushichhonkare/repos",
-        events_url:
-          "https://api.github.com/users/khushichhonkare/events{/privacy}",
-        received_events_url:
-          "https://api.github.com/users/khushichhonkare/received_events",
-        type: "User",
-        user_view_type: "public",
-        site_admin: false
-      },
-      body: "remove this line too",
-      created_at: "2025-02-12T18:35:25Z",
-      updated_at: "2025-02-12T18:35:37Z",
-      html_url:
-        "https://github.com/khushichhonkare/demo-repo/pull/1#discussion_r1953208362",
-      pull_request_url:
-        "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/1",
-      author_association: "OWNER",
-      _links: {
-        self: {
-          href: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/comments/1953208362"
-        },
-        html: {
-          href: "https://github.com/khushichhonkare/demo-repo/pull/1#discussion_r1953208362"
-        },
-        pull_request: {
-          href: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/1"
-        }
-      },
-      reactions: {
-        url: "https://api.github.com/repos/khushichhonkare/demo-repo/pulls/comments/1953208362/reactions",
-        total_count: 0,
-        "+1": 0,
-        "-1": 0,
-        laugh: 0,
-        hooray: 0,
-        confused: 0,
-        heart: 0,
-        rocket: 0,
-        eyes: 0
-      },
-      start_line: null,
-      original_start_line: null,
-      start_side: null,
-      line: 5,
-      original_line: 5,
-      side: "RIGHT",
-      original_position: 7,
-      position: 7,
-      subject_type: "line"
-    }
-  ]
+
   useEffect(() => {
     chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
       const tab = tabs[0]
@@ -301,53 +142,81 @@ function IndexPopup() {
     <div>
       {isPRPage ? (
         <div className="w-[600px] p-4">
-          <div className="flex flex-col border-b border-gray-200 pb-3">
-            <h1 className="text-2xl font-bold">Merge Mate</h1>
-            <div className="mt-2 text-sm text-gray-600">
+          <div className="flex flex-col border-b border-gray-200 pb-4 mb-6">
+            <div className="flex items-center gap-2 mb-2">
+              <h1 className="text-2xl font-bold text-gray-900">Merge Mate</h1>
+              <div className="px-2 py-1 rounded-full bg-green-100 text-green-800 text-xs font-medium">
+                Beta
+              </div>
+            </div>
+            <div className="text-sm text-gray-600 space-y-1">
               <div className="flex items-center gap-2">
-                <span className="font-medium">Repository:</span>
-                <span>
+                <span className="font-medium text-gray-700">Repository:</span>
+                <span className="hover:text-blue-600 cursor-pointer">
                   {prDetails?.owner}/{prDetails?.repo}
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-medium">Pull Request:</span>
-                <span>#{prDetails?.pullNumber}</span>
+                <span className="font-medium text-gray-700">Pull Request:</span>
+                <span className="bg-gray-100 px-2 py-0.5 rounded-full">
+                  #{prDetails?.pullNumber}
+                </span>
               </div>
             </div>
           </div>
 
           <Table>
-            <TableCaption>Pull Request Comments</TableCaption>
+            <TableCaption className="text-gray-600 mb-2">
+              A list of comments on this pull request
+            </TableCaption>
             <TableHeader>
-              <TableRow>
-                <TableHead className="text-center">Comment</TableHead>
-                <TableHead className="text-center">Author</TableHead>
-                <TableHead className="text-center">Status</TableHead>
-                <TableHead className="text-center">Actions</TableHead>
+              <TableRow className="hover:bg-gray-50">
+                <TableHead className="text-center font-semibold text-gray-700">Comment</TableHead>
+                <TableHead className="text-center font-semibold text-gray-700">Author</TableHead>
+                <TableHead className="text-center font-semibold text-gray-700">Status</TableHead>
+                <TableHead className="text-center font-semibold text-gray-700">Actions</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {dummyData.map((comment) => (
-                <TableRow key={comment.id}>
-                  <TableCell className="font-medium text-center">{comment.body}</TableCell>
-                  <TableCell className="text-center">{comment.user.login}</TableCell>
+              {prDetails?.comments?.map((comment) => (
+                <TableRow key={comment.id} className="hover:bg-gray-50">
+                  <TableCell className="font-medium text-center max-w-[250px] truncate">
+                    {comment.body}
+                  </TableCell>
                   <TableCell className="text-center">
-                    {comment.position === null ? "Outdated" : "Active"}
+                    <div className="flex items-center justify-center gap-2">
+                      <img 
+                        src={comment.user.avatar_url} 
+                        alt={comment.user.login}
+                        className="w-5 h-5 rounded-full"
+                      />
+                      <span className="text-gray-600">{comment.user.login}</span>
+                    </div>
+                  </TableCell>
+                  <TableCell className="text-center">
+                    {comment.position === null ? (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                        Outdated
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                        Active
+                      </span>
+                    )}
                   </TableCell>
                   <TableCell className="text-center p-1">
                     <TooltipProvider>
                       <Tooltip>
                         <TooltipTrigger asChild>
-                          <span 
-                            className="inline-flex cursor-pointer hover:text-blue-500 transition-colors"
+                          <button 
+                            className="inline-flex items-center justify-center p-2 rounded-full hover:bg-gray-100 transition-colors"
                             onClick={() => window.open(comment.html_url, "_blank")}
                           >
-                            <Eye className="h-4 w-4" />
-                          </span>
+                            <Eye className="h-4 w-4 text-gray-600" />
+                          </button>
                         </TooltipTrigger>
                         <TooltipContent>
-                          <p>View Comment</p>
+                          <p className="text-sm">View Comment</p>
                         </TooltipContent>
                       </Tooltip>
                     </TooltipProvider>
