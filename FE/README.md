@@ -1,6 +1,10 @@
 # Merge Mate - GitHub PR Review Extension
 
-A Chrome extension that enhances your GitHub Pull Request review experience by providing quick access to PR details and comments.
+Usually, when I receive too many PR comments, I lose track of them because GitHub hides some behind a "Click here to load more comments" message. As a result, multiple comments get overlooked while resolving PR feedback.
+
+Here’s the ultimate solution—Mergeee Mate! 🚀
+
+It's a Chrome extension that enhances your GitHub Pull Request review experience by providing quick access to PR details and comments, ensuring you never miss important feedback again!
 
 ## Features
 
