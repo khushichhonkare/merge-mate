@@ -14,6 +14,7 @@ import {
 import { Input } from "~components/ui/input"
 import { encryptToken } from "../utils/encryption"
 
+// Validation schema for the access token form
 const formSchema = z.object({
   access_token: z.string().min(1, { message: "Access token is required." })
 })
@@ -22,6 +23,9 @@ interface AccessTokenFormProps {
   onTokenSubmit: (token: string) => void
 }
 
+/**
+ * Form component for handling GitHub access token input and storage
+ */
 export function AccessTokenForm({ onTokenSubmit }: AccessTokenFormProps) {
   const form = useForm({
     resolver: zodResolver(formSchema),
@@ -30,6 +34,7 @@ export function AccessTokenForm({ onTokenSubmit }: AccessTokenFormProps) {
     }
   })
 
+  // Handle form submission: encrypt token, store it, and notify parent
   const onSubmit = (data: { access_token: string }) => {
     const encryptedToken = encryptToken(data.access_token)
     localStorage.setItem("merge-mate-access", encryptedToken)

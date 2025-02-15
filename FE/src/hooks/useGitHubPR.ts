@@ -8,10 +8,15 @@ export interface PRDetails {
   comments?: any[]
 }
 
+/**
+ * Custom hook to fetch and manage GitHub PR details and comments
+ * Handles PR page detection and data fetching based on URL and auth token
+ */
 export function useGitHubPR(currentURL: string, accessToken: string | null) {
   const [prDetails, setPRDetails] = useState<PRDetails | null>(null)
   const [isPRPage, setIsPRPage] = useState(false)
 
+  // Check if current page is a PR and fetch basic PR details
   useEffect(() => {
     const checkPage = async () => {
       const isPR = await isGitHubPullRequestPage(currentURL)
@@ -31,6 +36,7 @@ export function useGitHubPR(currentURL: string, accessToken: string | null) {
     }
   }, [currentURL])
 
+  // Fetch PR comments using GitHub API
   const fetchPullRequestComments = async () => {
     if (prDetails && accessToken) {
       const { owner, repo, pullNumber } = prDetails
@@ -59,6 +65,7 @@ export function useGitHubPR(currentURL: string, accessToken: string | null) {
     }
   }
 
+  // Fetch comments when on PR page and access token is available
   useEffect(() => {
     if (isPRPage && accessToken) {
       fetchPullRequestComments()

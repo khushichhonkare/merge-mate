@@ -7,6 +7,9 @@ interface PRDetailsViewProps {
   prDetails: PRDetails
 }
 
+/**
+ * Displays pull request information and a table of comments with their status and actions
+ */
 export function PRDetailsView({ prDetails }: PRDetailsViewProps) {
   return (
     <div className="w-[600px] p-4">
