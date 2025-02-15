@@ -1,33 +1,106 @@
-This is a [Plasmo extension](https://docs.plasmo.com/) project bootstrapped with [`plasmo init`](https://www.npmjs.com/package/plasmo).
+# Merge Mate - GitHub PR Review Extension
 
-## Getting Started
+A Chrome extension that enhances your GitHub Pull Request review experience by providing quick access to PR details and comments.
 
-First, run the development server:
+## Features
 
-```bash
-pnpm dev
-# or
-npm run dev
-```
+- 🔒 Secure GitHub authentication
+- 🔍 Automatic PR page detection
+- 💬 View PR comments and their status
+- 🔐 Encrypted token storage
+- 🎯 Quick navigation to specific comments
 
-Open your browser and load the appropriate development build. For example, if you are developing for the chrome browser, using manifest v3, use: `build/chrome-mv3-dev`.
+## Tech Stack
 
-You can start editing the popup by modifying `popup.tsx`. It should auto-update as you make changes. To add an options page, simply add a `options.tsx` file to the root of the project, with a react component default exported. Likewise to add a content page, add a `content.ts` file to the root of the project, importing some module and do some logic, then reload the extension on your browser.
+- **Framework**: React + TypeScript
+- **State Management**: React Hooks
+- **Form Handling**: React Hook Form + Zod
+- **Styling**: Tailwind CSS
+- **Security**: CryptoJS for token encryption
+- **UI Components**: Custom shadcn/ui components
 
-For further guidance, [visit our Documentation](https://docs.plasmo.com/)
+## Project Structure 
+├── src/
+│ ├── components/ # React components
+│ │ ├── AccessTokenForm # GitHub token input form
+│ │ ├── NotPRPage # Non-PR page message
+│ │ ├── PRDetails # PR information display
+│ │ └── ui/ # Reusable UI components
+│ ├── hooks/
+│ │ └── useGitHubPR # PR data fetching hook
+│ ├── lib/
+│ │ ├── githubAuth # GitHub OAuth handling
+│ │ └── utils # Utility functions
+│ ├── utils/
+│ │ └── encryption # Token encryption utilities
+│ └── popup.tsx # Main extension popup├── src/
+│ ├── components/ # React components
+│ │ ├── AccessTokenForm # GitHub token input form
+│ │ ├── NotPRPage # Non-PR page message
+│ │ ├── PRDetails # PR information display
+│ │ └── ui/ # Reusable UI components
+│ ├── hooks/
+│ │ └── useGitHubPR # PR data fetching hook
+│ ├── lib/
+│ │ ├── githubAuth # GitHub OAuth handling
+│ │ └── utils # Utility functions
+│ ├── utils/
+│ │ └── encryption # Token encryption utilities
+│ └── popup.tsx # Main extension popup
 
-## Making production build
 
-Run the following:
+## Setup & Installation
 
-```bash
-pnpm build
-# or
-npm run build
-```
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   cd FE
+   npm install
+   ```
+3. Create a GitHub OAuth app and update the `clientId` in `src/lib/githubAuth.ts`
+4. Build the extension:
+   ```bash
+   npm run build
+   ```
+5. Load the extension in Chrome:
+   - Open `chrome://extensions/`
+   - Enable "Developer mode"
+   - Click "Load unpacked"
+   - Select the `dist` folder
 
-This should create a production bundle for your extension, ready to be zipped and published to the stores.
+## Security
 
-## Submit to the webstores
+- GitHub access tokens are encrypted using AES encryption before storage
+- Tokens are stored in browser's localStorage in encrypted form
+- OAuth authentication flow uses a secure popup window
+- Environment variables are used for sensitive data
 
-The easiest way to deploy your Plasmo extension is to use the built-in [bpp](https://bpp.browser.market) GitHub action. Prior to using this action however, make sure to build your extension and upload the first version to the store to establish the basic credentials. Then, simply follow [this setup instruction](https://docs.plasmo.com/framework/workflows/submit) and you should be on your way for automated submission!
+## Usage
+
+1. Click the extension icon in Chrome
+2. If not authenticated, provide your GitHub access token
+3. When viewing a GitHub PR:
+   - See PR details and repository information
+   - View all PR comments with their status (Active/Outdated)
+   - Click the eye icon to navigate to specific comments
+4. On non-PR pages, a helpful message is displayed
+
+## Development
+
+1. Make changes to the code
+2. Run development server:
+   ```bash
+   npm run dev
+   ```
+3. The extension will auto-reload with your changes
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## License
+MIT License - feel free to use and modify for your needs!
