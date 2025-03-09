@@ -42,7 +42,38 @@ export function AccessTokenForm({ onTokenSubmit }: AccessTokenFormProps) {
     <div className="flex justify-center items-center w-[450px] min-w-[450px] p-3">
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col items-center space-y-8 p-4 w-full border-2 bg-gray-100 border-gray-300">
-          {/* ... rest of the form JSX ... */}
+        <FormField
+             control={form.control}
+             name="access_token"
+             render={({ field }) => (
+               <FormItem className="w-full text-center">
+                 <FormLabel className="text-center text-xl font-semibold">
+                   Please enter your access token
+                 </FormLabel>
+                 <FormControl>
+                   <Input
+                     placeholder="ghp_abcDEFGHIJKLMNOPQRSTUVWXYZ123..."
+                     {...field}
+                     className="text-sm"
+                   />
+                 </FormControl>
+                 <FormDescription className="text-center text-sm">
+                   Click{" "}
+                   <a
+                     href={accessTokenLink}
+                     target="_blank"
+                     className="text-blue-500">
+                     here
+                   </a>{" "}
+                   to see how to generate access token
+                 </FormDescription>
+                 <FormMessage className="text-center text-sm" />
+               </FormItem>
+             )}
+           />
+           <Button type="submit" className="mt-4 text-base">
+             Submit
+           </Button>
         </form>
       </Form>
     </div>

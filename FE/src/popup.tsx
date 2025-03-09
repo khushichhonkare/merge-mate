@@ -30,6 +30,7 @@ function IndexPopup() {
   }, [])
 
   if (!accessToken) {
+    console.log("No access token")
     return <AccessTokenForm onTokenSubmit={setAccessToken} />
   }
 
